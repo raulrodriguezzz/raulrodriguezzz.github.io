@@ -60,6 +60,67 @@
     a:hover {
       background: #16a34a;
     }
+    @keyframes aparecer {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+h1, p, .servicio {
+  animation: aparecer 0.8s ease backwards;
+}
+.servicio:nth-child(2) { animation-delay: 0.2s; }
+.servicio:nth-child(3) { animation-delay: 0.4s; }
+
+.servicio {
+  transition: transform 0.3s, background 0.3s;
+}
+.servicio:hover {
+  transform: translateY(-6px) scale(1.02);
+  background: #273449;
+}
+
+img {
+  animation: flotar 3s ease-in-out infinite;
+}
+.precios {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+.precio {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
+  border: 1px solid #334155;
+  transition: transform 0.3s, border-color 0.3s;
+}
+.precio:hover {
+  transform: translateY(-4px);
+  border-color: #38bdf8;
+}
+.precio strong {
+  display: block;
+  color: white;
+}
+.precio small {
+  color: #94a3b8;
+}
+.precio .monto {
+  font-size: 24px;
+  font-weight: bold;
+  color: #22c55e;
+  white-space: nowrap;
+  margin-left: 16px;
+}
   </style>
 </head>
 <body>
@@ -82,7 +143,30 @@
       <span>Alexa, focos, enchufes y cámaras inteligentes.</span>
     </div>
   </div>
-
+<h2>Precios</h2>
+<div class="precios">
+  <div class="precio">
+    <div>
+      <strong>Visita a domicilio</strong>
+      <small>Configuración o revisión de tus equipos</small>
+    </div>
+    <span class="monto">$350</span>
+  </div>
+  <div class="precio">
+    <div>
+      <strong>Paso de datos de celular</strong>
+      <small>Fotos, contactos y apps al equipo nuevo</small>
+    </div>
+    <span class="monto">$300</span>
+  </div>
+  <div class="precio">
+    <div>
+      <strong>Casa inteligente</strong>
+      <small>Alexa, focos, enchufes y cámaras</small>
+    </div>
+    <span class="monto">Desde $400</span>
+  </div>
+</div>
   <a href="https://wa.me/525619882007">Escríbeme por WhatsApp</a>
 </body>
 </html>
