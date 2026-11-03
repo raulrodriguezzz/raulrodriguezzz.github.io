@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #0f172a;
+      background: #0b1220;
       color: white;
       max-width: 600px;
       margin: 0 auto;
@@ -16,10 +16,10 @@
     }
     h1 {
       font-size: 42px;
-      color: #38bdf8;
+      color: #2dd4bf;
     }
     h2 {
-      color: #38bdf8;
+      color: #2dd4bf;
       margin-top: 50px;
     }
     p {
@@ -34,7 +34,8 @@
       margin-top: 20px;
     }
     .servicio {
-      background: #1e293b;
+      background: #111a2e;
+      border: 1px solid #22304a;
       padding: 18px;
       border-radius: 10px;
       text-align: left;
@@ -44,103 +45,103 @@
     }
     .servicio span {
       display: block;
-      color: #94a3b8;
+      color: #8b9bb4;
       margin-top: 4px;
     }
     a {
       display: inline-block;
       margin-top: 30px;
       padding: 14px 28px;
-      background: #22c55e;
-      color: white;
+      background: #2dd4bf;
+      color: #0b1220;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
     }
     a:hover {
-      background: #16a34a;
+      background: #14b8a6;
     }
+
     @keyframes aparecer {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes flotar {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes flotar {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    h1, p, .servicio {
+      animation: aparecer 0.8s ease backwards;
+    }
+    .servicio:nth-child(2) { animation-delay: 0.2s; }
+    .servicio:nth-child(3) { animation-delay: 0.4s; }
+    .servicio {
+      transition: transform 0.3s, background 0.3s;
+    }
+    .servicio:hover {
+      transform: translateY(-6px) scale(1.02);
+      background: #16223a;
+    }
+    img {
+      animation: flotar 3s ease-in-out infinite;
+    }
 
-h1, p, .servicio {
-  animation: aparecer 0.8s ease backwards;
-}
-.servicio:nth-child(2) { animation-delay: 0.2s; }
-.servicio:nth-child(3) { animation-delay: 0.4s; }
+    .precios {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .precio {
+      background: #111a2e;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+      border: 1px solid #22304a;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .precio:hover {
+      transform: translateY(-4px);
+      border-color: #2dd4bf;
+    }
+    .precio strong {
+      display: block;
+      color: white;
+    }
+    .precio small {
+      color: #8b9bb4;
+    }
+    .precio .monto {
+      font-size: 24px;
+      font-weight: bold;
+      color: #2dd4bf;
+      white-space: nowrap;
+      margin-left: 16px;
+    }
 
-.servicio {
-  transition: transform 0.3s, background 0.3s;
-}
-.servicio:hover {
-  transform: translateY(-6px) scale(1.02);
-  background: #273449;
-}
-
-img {
-  animation: flotar 3s ease-in-out infinite;
-}
-.precios {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  margin-top: 20px;
-}
-.precio {
-  background: #1e293b;
-  padding: 20px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  text-align: left;
-  border: 1px solid #334155;
-  transition: transform 0.3s, border-color 0.3s;
-}
-.precio:hover {
-  transform: translateY(-4px);
-  border-color: #38bdf8;
-}
-.precio strong {
-  display: block;
-  color: white;
-}
-.precio small {
-  color: #94a3b8;
-}
-.precio .monto {
-  font-size: 24px;
-  font-weight: bold;
-  color: #22c55e;
-  white-space: nowrap;
-  margin-left: 16px;
-}
-.faq {
-  margin-top: 20px;
-  text-align: left;
-}
-.faq details {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin-bottom: 12px;
-}
-.faq summary {
-  cursor: pointer;
-  font-weight: bold;
-  color: white;
-}
-.faq details p {
-  margin: 12px 0 0;
-  font-size: 16px;
-}
+    .faq {
+      margin-top: 20px;
+      text-align: left;
+    }
+    .faq details {
+      background: #111a2e;
+      border: 1px solid #22304a;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+    }
+    .faq summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+    }
+    .faq details p {
+      margin: 12px 0 0;
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
@@ -163,49 +164,52 @@ img {
       <span>Alexa, focos, enchufes y cámaras inteligentes.</span>
     </div>
   </div>
-<h2>Precios</h2>
-<div class="precios">
-  <div class="precio">
-    <div>
-      <strong>Visita a domicilio</strong>
-      <small>Configuración o revisión de tus equipos</small>
+
+  <h2>Precios</h2>
+  <div class="precios">
+    <div class="precio">
+      <div>
+        <strong>Visita a domicilio</strong>
+        <small>Configuración o revisión de tus equipos</small>
+      </div>
+      <span class="monto">$350</span>
     </div>
-    <span class="monto">$350</span>
-  </div>
-  <div class="precio">
-    <div>
-      <strong>Paso de datos de celular</strong>
-      <small>Fotos, contactos y apps al equipo nuevo</small>
+    <div class="precio">
+      <div>
+        <strong>Paso de datos de celular</strong>
+        <small>Fotos, contactos y apps al equipo nuevo</small>
+      </div>
+      <span class="monto">$300</span>
     </div>
-    <span class="monto">$300</span>
-  </div>
-  <div class="precio">
-    <div>
-      <strong>Casa inteligente</strong>
-      <small>Alexa, focos, enchufes y cámaras</small>
+    <div class="precio">
+      <div>
+        <strong>Casa inteligente</strong>
+        <small>Alexa, focos, enchufes y cámaras</small>
+      </div>
+      <span class="monto">Desde $400</span>
     </div>
-    <span class="monto">Desde $400</span>
   </div>
-</div>
-<h2>Preguntas frecuentes</h2>
-<div class="faq">
-  <details>
-    <summary>¿A qué zonas voy?</summary>
-    <p>Voy a domicilio en Cuajimalpa, Santa Fe, Interlomas y zonas cercanas. Escríbeme y te confirmo.</p>
-  </details>
-  <details>
-    <summary>¿Cómo se paga?</summary>
-    <p>Al terminar el servicio, en efectivo o por transferencia.</p>
-  </details>
-  <details>
-    <summary>¿Cuánto tarda una visita?</summary>
-    <p>Normalmente entre 30 minutos y 2 horas, según lo que necesites.</p>
-  </details>
-  <details>
-    <summary>¿Y si no sé qué falla tiene mi equipo?</summary>
-    <p>No hay problema. Lo reviso en la visita y te digo qué tiene y cuánto costaría arreglarlo.</p>
-  </details>
-</div>
-<a href="https://wa.me/525619882007?text=Hola%20Raul%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20servicio">Cotiza por WhatsApp</a>
+
+  <h2>Preguntas frecuentes</h2>
+  <div class="faq">
+    <details>
+      <summary>¿A qué zonas voy?</summary>
+      <p>Voy a domicilio en Cuajimalpa, Santa Fe, Interlomas y zonas cercanas. Escríbeme y te confirmo.</p>
+    </details>
+    <details>
+      <summary>¿Cómo se paga?</summary>
+      <p>Al terminar el servicio, en efectivo o por transferencia.</p>
+    </details>
+    <details>
+      <summary>¿Cuánto tarda una visita?</summary>
+      <p>Normalmente entre 30 minutos y 2 horas, según lo que necesites.</p>
+    </details>
+    <details>
+      <summary>¿Y si no sé qué falla tiene mi equipo?</summary>
+      <p>No hay problema. Lo reviso en la visita y te digo qué tiene y cuánto costaría arreglarlo.</p>
+    </details>
+  </div>
+
+  <a href="https://wa.me/525619882007?text=Hola%20Raul%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20servicio">Cotiza por WhatsApp</a>
 </body>
 </html>
