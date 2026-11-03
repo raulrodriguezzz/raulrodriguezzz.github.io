@@ -4,94 +4,119 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hola, soy Raul</title>
+  <meta name="description" content="Configuración de celulares, wifi y casa inteligente a domicilio. Precios claros y atención por WhatsApp.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏠</text></svg>">
   <style>
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       background: #0b1220;
       color: white;
       max-width: 600px;
       margin: 0 auto;
-      padding: 60px 20px;
+      padding: 60px 20px 110px;
       text-align: center;
+      overflow-x: hidden;
     }
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      filter: blur(110px);
+      opacity: 0.18;
+      z-index: -1;
+      pointer-events: none;
+    }
+    body::before { background: #2dd4bf; top: -120px; left: -140px; animation: luz1 14s ease-in-out infinite; }
+    body::after  { background: #6366f1; bottom: -140px; right: -140px; animation: luz2 18s ease-in-out infinite; }
+    @keyframes luz1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(120px,140px); } }
+    @keyframes luz2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-120px,-140px); } }
+
     h1 {
       font-size: 42px;
-      color: #2dd4bf;
+      background: linear-gradient(90deg, #2dd4bf, #a5f3fc, #2dd4bf);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: brillo 5s linear infinite;
     }
-    h2 {
-      color: #2dd4bf;
-      margin-top: 50px;
+    @keyframes brillo { to { background-position: 200% center; } }
+
+    h2 { color: #2dd4bf; margin-top: 50px; }
+    p { font-size: 18px; line-height: 1.6; color: #cbd5e1; }
+
+    .foto {
+      width: 140px; height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #2dd4bf;
+      box-shadow: 0 0 0 6px rgba(45,212,191,0.15), 0 10px 40px rgba(45,212,191,0.25);
+      animation: flotar 3s ease-in-out infinite;
     }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #cbd5e1;
+    @keyframes flotar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
     }
-    .servicios {
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .servicios, .precios, .pasos {
       display: flex;
       flex-direction: column;
       gap: 14px;
       margin-top: 20px;
     }
+
     .servicio {
+      background: #111a2e;
+      border: 1px solid #22304a;
+      padding: 14px 18px;
+      border-radius: 10px;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: transform 0.3s, background 0.3s, border-color 0.3s;
+    }
+    .servicio:hover { transform: translateY(-6px) scale(1.02); background: #16223a; border-color: #2dd4bf; }
+    .servicio dotlottie-wc { width: 72px; height: 72px; flex-shrink: 0; }
+    .servicio strong { display: block; color: white; }
+    .servicio span { display: block; color: #8b9bb4; margin-top: 4px; }
+
+    /* Como funciona */
+    .paso {
       background: #111a2e;
       border: 1px solid #22304a;
       padding: 18px;
       border-radius: 10px;
       text-align: left;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.3s, border-color 0.3s;
     }
-    .servicio strong {
-      color: white;
-    }
-    .servicio span {
-      display: block;
-      color: #8b9bb4;
-      margin-top: 4px;
-    }
-    a {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 14px 28px;
+    .paso:hover { transform: translateY(-4px); border-color: #2dd4bf; }
+    .numero {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       background: #2dd4bf;
       color: #0b1220;
-      text-decoration: none;
-      border-radius: 8px;
       font-weight: bold;
-    }
-    a:hover {
-      background: #14b8a6;
-    }
-
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes flotar {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    h1, p, .servicio {
-      animation: aparecer 0.8s ease backwards;
-    }
-    .servicio:nth-child(2) { animation-delay: 0.2s; }
-    .servicio:nth-child(3) { animation-delay: 0.4s; }
-    .servicio {
-      transition: transform 0.3s, background 0.3s;
-    }
-    .servicio:hover {
-      transform: translateY(-6px) scale(1.02);
-      background: #16223a;
-    }
-    img {
-      animation: flotar 3s ease-in-out infinite;
-    }
-
-    .precios {
+      font-size: 20px;
       display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 20px;
+      align-items: center;
+      justify-content: center;
     }
+    .paso strong { display: block; color: white; }
+    .paso span { display: block; color: #8b9bb4; margin-top: 4px; }
+
     .precio {
       background: #111a2e;
       padding: 20px;
@@ -103,85 +128,149 @@
       border: 1px solid #22304a;
       transition: transform 0.3s, border-color 0.3s;
     }
-    .precio:hover {
-      transform: translateY(-4px);
-      border-color: #2dd4bf;
-    }
-    .precio strong {
-      display: block;
-      color: white;
-    }
-    .precio small {
-      color: #8b9bb4;
-    }
-    .precio .monto {
-      font-size: 24px;
-      font-weight: bold;
-      color: #2dd4bf;
-      white-space: nowrap;
-      margin-left: 16px;
-    }
+    .precio:hover { transform: translateY(-4px); border-color: #2dd4bf; }
+    .precio strong { display: block; color: white; }
+    .precio small { color: #8b9bb4; }
+    .precio .monto { font-size: 24px; font-weight: bold; color: #2dd4bf; white-space: nowrap; margin-left: 16px; }
 
-    .faq {
-      margin-top: 20px;
-      text-align: left;
-    }
+    .faq { margin-top: 20px; text-align: left; }
     .faq details {
       background: #111a2e;
       border: 1px solid #22304a;
       border-radius: 10px;
       padding: 16px 18px;
       margin-bottom: 12px;
+      transition: border-color 0.3s;
     }
-    .faq summary {
-      cursor: pointer;
+    .faq details:hover { border-color: #2dd4bf; }
+    .faq summary { cursor: pointer; font-weight: bold; color: white; }
+    .faq details p { margin: 12px 0 0; font-size: 16px; }
+
+    .boton {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 14px 28px;
+      background: #2dd4bf;
+      color: #0b1220;
+      text-decoration: none;
+      border-radius: 8px;
       font-weight: bold;
-      color: white;
+      animation: pulso 2.2s infinite;
+      transition: background 0.3s, transform 0.3s;
     }
-    .faq details p {
-      margin: 12px 0 0;
-      font-size: 16px;
+    .boton:hover { background: #14b8a6; transform: scale(1.06); }
+    @keyframes pulso {
+      0%   { box-shadow: 0 0 0 0 rgba(45,212,191,0.55); }
+      70%  { box-shadow: 0 0 0 18px rgba(45,212,191,0); }
+      100% { box-shadow: 0 0 0 0 rgba(45,212,191,0); }
+    }
+
+    /* Boton flotante de WhatsApp */
+    .wa-flotante {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25d366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      z-index: 100;
+      animation: pulsoWa 2.5s infinite;
+      transition: transform 0.3s;
+    }
+    .wa-flotante:hover { transform: scale(1.12); }
+    @keyframes pulsoWa {
+      0%   { box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0.6); }
+      70%  { box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 0 16px rgba(37,211,102,0); }
+      100% { box-shadow: 0 6px 20px rgba(0,0,0,0.4), 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    footer { margin-top: 50px; font-size: 14px; color: #8b9bb4; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <img src="foto.jpg" alt="Foto de Raul" style="width:140px;height:140px;border-radius:50%;object-fit:cover;">
+  <img class="foto" src="foto.jpg" alt="Foto de Raul">
   <h1>Hola, soy Raul</h1>
   <p>Estudio Inteligencia Artificial y me encanta la tecnología.</p>
 
-  <h2>¿En qué te puedo ayudar?</h2>
+  <h2 class="reveal">¿En qué te puedo ayudar?</h2>
   <div class="servicios">
-    <div class="servicio">
-      <strong>📱 Celulares</strong>
-      <span>Configuración, paso de datos entre equipos y reparación de fallas.</span>
+    <div class="servicio reveal">
+      <dotlottie-wc src="smartphone.json" autoplay loop></dotlottie-wc>
+      <div>
+        <strong>Celulares</strong>
+        <span>Configuración, paso de datos entre equipos y reparación de fallas.</span>
+      </div>
     </div>
-    <div class="servicio">
-      <strong>📶 Wifi y redes</strong>
-      <span>Mejoro la señal y resuelvo problemas de conexión en casa.</span>
+    <div class="servicio reveal">
+      <dotlottie-wc src="wifi.json" autoplay loop></dotlottie-wc>
+      <div>
+        <strong>Wifi y redes</strong>
+        <span>Mejoro la señal y resuelvo problemas de conexión en casa.</span>
+      </div>
     </div>
-    <div class="servicio">
-      <strong>🏠 Casa inteligente</strong>
-      <span>Alexa, focos, enchufes y cámaras inteligentes.</span>
+    <div class="servicio reveal">
+      <dotlottie-wc src="SmartHome.json" autoplay loop></dotlottie-wc>
+      <div>
+        <strong>Casa inteligente</strong>
+        <span>Alexa, focos, enchufes y cámaras inteligentes.</span>
+      </div>
     </div>
   </div>
 
-  <h2>Precios</h2>
+  <h2 class="reveal">Cómo funciona</h2>
+  <div class="pasos">
+    <div class="paso reveal">
+      <div class="numero">1</div>
+      <div>
+        <strong>Me escribes por WhatsApp</strong>
+        <span>Cuéntame qué equipo tienes y qué necesitas.</span>
+      </div>
+    </div>
+    <div class="paso reveal">
+      <div class="numero">2</div>
+      <div>
+        <strong>Confirmamos precio, día y hora</strong>
+        <span>Sin sorpresas: sabes cuánto cuesta antes de empezar.</span>
+      </div>
+    </div>
+    <div class="paso reveal">
+      <div class="numero">3</div>
+      <div>
+        <strong>Voy, lo resuelvo y pagas al terminar</strong>
+        <span>Te explico lo que hice, sin tecnicismos.</span>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="reveal">Precios</h2>
   <div class="precios">
-    <div class="precio">
+    <div class="precio reveal">
       <div>
         <strong>Visita a domicilio</strong>
         <small>Configuración o revisión de tus equipos</small>
       </div>
       <span class="monto">$350</span>
     </div>
-    <div class="precio">
+    <div class="precio reveal">
       <div>
         <strong>Paso de datos de celular</strong>
         <small>Fotos, contactos y apps al equipo nuevo</small>
       </div>
       <span class="monto">$300</span>
     </div>
-    <div class="precio">
+    <div class="precio reveal">
       <div>
         <strong>Casa inteligente</strong>
         <small>Alexa, focos, enchufes y cámaras</small>
@@ -190,26 +279,43 @@
     </div>
   </div>
 
-  <h2>Preguntas frecuentes</h2>
+  <h2 class="reveal">Preguntas frecuentes</h2>
   <div class="faq">
-    <details>
+    <details class="reveal">
       <summary>¿A qué zonas voy?</summary>
       <p>Voy a domicilio en Cuajimalpa, Santa Fe, Interlomas y zonas cercanas. Escríbeme y te confirmo.</p>
     </details>
-    <details>
+    <details class="reveal">
       <summary>¿Cómo se paga?</summary>
       <p>Al terminar el servicio, en efectivo o por transferencia.</p>
     </details>
-    <details>
+    <details class="reveal">
       <summary>¿Cuánto tarda una visita?</summary>
       <p>Normalmente entre 30 minutos y 2 horas, según lo que necesites.</p>
     </details>
-    <details>
+    <details class="reveal">
       <summary>¿Y si no sé qué falla tiene mi equipo?</summary>
       <p>No hay problema. Lo reviso en la visita y te digo qué tiene y cuánto costaría arreglarlo.</p>
     </details>
   </div>
 
-  <a href="https://wa.me/525619882007?text=Hola%20Raul%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20servicio">Cotiza por WhatsApp</a>
+  <a class="boton" href="https://wa.me/525619882007?text=Hola%20Raul%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20servicio">Cotiza por WhatsApp</a>
+
+  <footer>© 2026 Raul · Servicio de tecnología a domicilio</footer>
+
+  <a class="wa-flotante" href="https://wa.me/525619882007?text=Hola%20Raul%2C%20vi%20tu%20p%C3%A1gina%20y%20quiero%20cotizar%20un%20servicio" aria-label="Escríbeme por WhatsApp">💬</a>
+
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@latest/dist/dotlottie-wc.js" type="module"></script>
+  <script>
+    const observador = new IntersectionObserver((entradas) => {
+      entradas.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observador.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => observador.observe(el));
+  </script>
 </body>
 </html>
